@@ -33,8 +33,8 @@ $ python -m pip install -r requirements.txt
 Because `vlc` to automatically play the generated audio, you will have to install it:
 
 ```bash
-sudo apt update
-sudo apt install vlc
+$ sudo apt update
+$ sudo apt install vlc
 ```
 
 > [!Note]
@@ -63,14 +63,17 @@ $ python tts.py --input demo/tongue-twister.txt --voice asmr
 Optionally, you can indicate a [voice](https://huggingface.co/hexgrad/Kokoro-82M/blob/main/VOICES.md) you want to use with `--voice`.
 
 ```bash
-python tts.py --voice am_michael
+$ python tts.py --voice am_michael
 ```
 
 There are four shortcuts available to the best voices: pro, hot, asmr, brit (i.e., best trained voices), and `pro` is the default if no value is given
 
 ```bash
-python tts.py --voice pro
-python tts.py --voice hot
-python tts.py --voice asmr
-python tts.py --voice brit
+$ python tts.py --voice pro # af_heart
+
+$ python tts.py --voice hot # af_bella
+
+$ python tts.py --voice asmr # af_nicole
+
+$ python tts.py --voice brit # bf_emma
 ```
