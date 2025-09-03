@@ -3,3 +3,4 @@ soundfile
 python-vlc
 tqdm
 argparse
+torch
