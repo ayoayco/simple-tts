@@ -20,8 +20,8 @@ $ conda create -n tts
 $ conda create -n tts --clone llm-pt26
 ```
 
-> [!Note]
-> For using Intel XPUs, see section below
+> [!Important]
+> For using Intel XPUs, you need to set up [ipex-llm environment with pytorch 2.6](https://git.ayo.run/ayo/ipex-llm/src/branch/main/docs/mddocs/Quickstart/install_pytorch26_gpu.md). Also, see "Intel XPU environmental variables" section below.
 
 Activate the environment and install the dependencies
 
@@ -41,8 +41,6 @@ $ sudo apt install vlc
 > Installing `vlc` via flatpak or snap will not work, as the code need access to `libvlc`.
 
 ## Intel XPU environmental variables
-
-Because I use an intel-based laptop, I use [ipex-llm environment with pytorch 2.6](https://git.ayo.run/ayo/ipex-llm/src/branch/main/docs/mddocs/Quickstart/install_pytorch26_gpu.md).
 
 For XPUs, we need to set some environmental variables. I have added a `env.sh` script which will activate the conda environment `tts` and set the environmental variables.
 
