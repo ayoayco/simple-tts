@@ -1,5 +1,4 @@
 kokoro
 soundfile
-torch
 python-vlc
 tqdm
