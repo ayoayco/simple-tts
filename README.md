@@ -1,4 +1,4 @@
-# Simple TTTS
+# Simple TTS
 
 A simple text-to-speech program powered by [kokoro](https://huggingface.co/hexgrad/Kokoro-82M).
 
