@@ -1,6 +1,6 @@
 # Simple TTTS
 
-A simple text to speech powered by [kokoro](https://huggingface.co/hexgrad/Kokoro-82M).
+A simple text-to-speech program powered by [kokoro](https://huggingface.co/hexgrad/Kokoro-82M).
 
 ## Setup
 
@@ -48,6 +48,7 @@ For XPUs, we need to set some environmental variables. I have added a `env.sh` s
 ```bash
 $ . env.sh
 ```
+
 ## Usage
 
 To run the program it needs an input file. For example, using `input.txt`
