@@ -41,10 +41,17 @@ sudo apt install vlc
 > [!Note]
 > Installing `vlc` via flatpak or snap will not work, as the code need access to `libvlc`.
 
-## Intel XPU usage
+## Intel XPU environmental variables
 
 For XPUs, we need to set some environmental variables. I have added a `env.sh` script which will activate the conda environment `tts` and set the environmental variables.
 
 ```bash
 $ . env.sh
+```
+## Usage
+
+To run the program it needs an input file. For example, using `input.txt`
+
+```bash
+$ python main.py input.txt
 ```
