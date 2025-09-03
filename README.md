@@ -51,8 +51,8 @@ $ . env.sh
 
 ## Usage
 
-To run the program it needs an input file. For example, using `input.txt`
+To run the program it needs an input file using the flag `--input`. Optionally, you can indicate a [voice](https://huggingface.co/hexgrad/Kokoro-82M/blob/main/VOICES.md) you want to use with `--voice`.
 
 ```bash
-$ python main.py input.txt
+$ python tts.py --input demo/tongue-twister.txt --voice asmr
 ```

@@ -2,3 +2,4 @@ kokoro
 soundfile
 python-vlc
 tqdm
+argparse
