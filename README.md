@@ -99,16 +99,16 @@ $ python tts.py --voice brit # bf_emma
 
 ### Pro (ah_heart)
 
-https://git.ayo.run/ayo/simple-tts/src/commit/bbc189d4ec19368028a48d2d60b0ee5879699571/demo/tongue-twister-af_heart-1.wav
+https://git.ayo.run/ayo/simple-tts/src/branch/main/demo/tongue-twister-af_heart-0.wav
 
-https://git.ayo.run/ayo/simple-tts/src/commit/bbc189d4ec19368028a48d2d60b0ee5879699571/demo/tongue-twister-af_heart-1.wav
+https://git.ayo.run/ayo/simple-tts/src/branch/main/demo/tongue-twister-af_heart-1.wav
 
-https://git.ayo.run/ayo/simple-tts/src/commit/bbc189d4ec19368028a48d2d60b0ee5879699571/demo/tongue-twister-af_heart-2.wav
+https://git.ayo.run/ayo/simple-tts/src/branch/main/demo/tongue-twister-af_heart-2.wav
 
 ### ASMR (ah_nicole)
 
-https://git.ayo.run/ayo/simple-tts/src/commit/bbc189d4ec19368028a48d2d60b0ee5879699571/demo/tongue-twister-af_nicole-0.wav
+https://git.ayo.run/ayo/simple-tts/src/branch/main/demo/tongue-twister-af_nicole-0.wav
 
-https://git.ayo.run/ayo/simple-tts/src/commit/bbc189d4ec19368028a48d2d60b0ee5879699571/demo/tongue-twister-af_nicole-1.wav
+https://git.ayo.run/ayo/simple-tts/src/branch/main/demo/tongue-twister-af_nicole-1.wav
 
-https://git.ayo.run/ayo/simple-tts/src/commit/bbc189d4ec19368028a48d2d60b0ee5879699571/demo/tongue-twister-af_nicole-2.wav
+https://git.ayo.run/ayo/simple-tts/src/branch/main/demo/tongue-twister-af_nicole-2.wav
