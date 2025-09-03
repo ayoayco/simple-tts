@@ -4,6 +4,13 @@ A simple text to speech powered by [kokoro](https://huggingface.co/hexgrad/Kokor
 
 ## Setup
 
+Clone repo and go into the directory
+
+```bash
+$ git clone https://git.ayo.run/ayo/simple-tts
+$ cd simple-tts
+```
+
 Create new environment. Here I use `conda`
 
 ```bash
@@ -32,3 +39,11 @@ sudo apt install vlc
 ```
 
 Note: installing `vlc` via flatpak or snap will not work, as the code need access to `libvlc`.
+
+## Intel XPU usage
+
+For XPUs, we need to set some environmental variables. I have added a `env.sh` script which will activate the conda environment `tts` and set the environmental variables.
+
+```bash
+$ . env.sh
+```
