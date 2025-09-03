@@ -1,0 +1,5 @@
+kokoro
+IPython
+soundfile
+torch
+vlc
