@@ -25,7 +25,7 @@ name = '.'.join(file_name.split('.')[:-1])
 
 file = open(file_path, "r")
 text = file.read()
-generator = pipeline(text, voice=voices['asmr'])
+generator = pipeline(text, voice=voices['pro'])
 
 output_files = []
 length = 0
