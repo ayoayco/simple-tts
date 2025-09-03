@@ -58,7 +58,7 @@ $ python tts.py --input demo/tongue-twister.txt --voice asmr
 
 ### Voices
 
-Optionally, you can indicate a [voice](https://huggingface.co/hexgrad/Kokoro-82M/blob/main/VOICES.md) you want to use with `--voice`.
+Optionally, you can indicate a voice you want to use with the `--voice` flag. See [all voices available](https://huggingface.co/hexgrad/Kokoro-82M/blob/main/VOICES.md).
 
 ```bash
 $ python tts.py --voice am_michael
