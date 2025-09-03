@@ -1,11 +1,10 @@
 from kokoro import KPipeline
-from IPython.display import display, Audio
 import soundfile as sf
-import torch
 import sys
 import os
 import vlc
 from time import sleep
+from tqdm import tqdm
 
 pipeline = KPipeline(lang_code='a', device='xpu')
 
@@ -23,8 +22,8 @@ output_files = []
 
 for i, (gs, ps, audio) in enumerate(generator):
     # print(i, gs, ps)
-    display(Audio(data=audio, rate=24000, autoplay=i==0))
-    output_file_name=f'{name}-{i}.wav'
+    output_file_name=f'outputs/{name}-{i}.wav'
+    os.makedirs(os.path.dirname(output_file_name), exist_ok=True)
     print(f"Done generating audio: {output_file_name}")
     sf.write(output_file_name, audio, 24000)
     output_files.append(output_file_name)
@@ -37,4 +36,5 @@ for output in output_files:
     sleep(0.1)
     duration=media.get_length() / 1000
     print(f"duration: {duration}s")
+    #for i in tqdm(range(100)):
     sleep(duration)
