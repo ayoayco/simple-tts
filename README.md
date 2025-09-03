@@ -30,7 +30,7 @@ $ conda activate tts
 $ python -m pip install -r requirements.txt
 ```
 
-Because `vlc` to automatically play the generated audio, you will have to install it:
+Because `vlc` is used to automatically play the generated audio, you will have to install it:
 
 ```bash
 $ sudo apt update
