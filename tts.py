@@ -64,7 +64,7 @@ def main():
 
     start_time = time()
     for i, (gs, ps, audio) in enumerate(generator):
-        output_file_name=f'outputs/{name}-{i}.wav'
+        output_file_name=f'outputs/{name}-{voice}-{i}.wav'
         os.makedirs(os.path.dirname(output_file_name), exist_ok=True)
         output_files.append(output_file_name)
         sf.write(output_file_name, audio, 24000)
