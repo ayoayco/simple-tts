@@ -38,7 +38,8 @@ sudo apt update
 sudo apt install vlc
 ```
 
-Note: installing `vlc` via flatpak or snap will not work, as the code need access to `libvlc`.
+> [!Note]
+> Installing `vlc` via flatpak or snap will not work, as the code need access to `libvlc`.
 
 ## Intel XPU usage
 

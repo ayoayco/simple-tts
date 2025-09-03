@@ -2,4 +2,4 @@ kokoro
 IPython
 soundfile
 torch
-vlc
+python-vlc
