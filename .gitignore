@@ -2,6 +2,8 @@
 *swp
 *swo
 
+__pycache__
+
 outputs/
 inputs/
 *.wav
