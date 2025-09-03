@@ -97,14 +97,18 @@ $ python tts.py --voice brit # bf_emma
 
 ## Demo Outputs
 
-https://git.ayo.run/ayo/simple-tts/src/commit/bbc189d4ec19368028a48d2d60b0ee5879699571/demo/tongue-twister-af_heart-1.wav
+### Heart Tongue Twister
 
-https://git.ayo.run/ayo/simple-tts/src/commit/bbc189d4ec19368028a48d2d60b0ee5879699571/demo/tongue-twister-af_heart-1.wav
+<audio controls src="https://git.ayo.run/ayo/simple-tts/src/commit/bbc189d4ec19368028a48d2d60b0ee5879699571/demo/tongue-twister-af_heart-1.wav"></audio>
 
-https://git.ayo.run/ayo/simple-tts/src/commit/bbc189d4ec19368028a48d2d60b0ee5879699571/demo/tongue-twister-af_heart-2.wav
+<audio controls src="https://git.ayo.run/ayo/simple-tts/src/commit/bbc189d4ec19368028a48d2d60b0ee5879699571/demo/tongue-twister-af_heart-1.wav"></audio>
 
-https://git.ayo.run/ayo/simple-tts/src/commit/bbc189d4ec19368028a48d2d60b0ee5879699571/demo/tongue-twister-af_nicole-0.wav
+<audio controls src="https://git.ayo.run/ayo/simple-tts/src/commit/bbc189d4ec19368028a48d2d60b0ee5879699571/demo/tongue-twister-af_heart-2.wav"></audio>
 
-https://git.ayo.run/ayo/simple-tts/src/commit/bbc189d4ec19368028a48d2d60b0ee5879699571/demo/tongue-twister-af_nicole-1.wav
+### Nicole Tongue Twister
 
-https://git.ayo.run/ayo/simple-tts/src/commit/bbc189d4ec19368028a48d2d60b0ee5879699571/demo/tongue-twister-af_nicole-2.wav
+<audio controls src="https://git.ayo.run/ayo/simple-tts/src/commit/bbc189d4ec19368028a48d2d60b0ee5879699571/demo/tongue-twister-af_nicole-0.wav"></audio>
+
+<audio controls src="https://git.ayo.run/ayo/simple-tts/src/commit/bbc189d4ec19368028a48d2d60b0ee5879699571/demo/tongue-twister-af_nicole-1.wav"></audio>
+
+<audio controls src="https://git.ayo.run/ayo/simple-tts/src/commit/bbc189d4ec19368028a48d2d60b0ee5879699571/demo/tongue-twister-af_nicole-2.wav"></audio>
