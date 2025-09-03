@@ -63,10 +63,16 @@ If using Intel XPUs, set the env variables
 $ . env.sh
 ```
 
-To run the program it needs an input file using the flag `--input`.
+Running the program without arguments will use the demo text `tongue-twister.txt` with the default voice.
 
 ```bash
-$ python tts.py --input demo/tongue-twister.txt --voice asmr
+$ python tts.py # will use default arguments
+```
+
+To run the program with an input file, use flag `--input`.
+
+```bash
+$ python tts.py --input demo/tongue-twister.txt
 ```
 
 ### Voices
