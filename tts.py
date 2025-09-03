@@ -44,12 +44,10 @@ def parse_args():
 def main():
     args=parse_args()
     pipeline = KPipeline(lang_code='a', device=args.device, repo_id='hexgrad/Kokoro-82M')
-    voice=voices[args.voice]
-    if voice is None:
-        if args.voice is None:
-            voice=voices['pro']
-        else:
-            voice=args.voice
+    if args.voice in voices:
+        voice=voices[args.voice]
+    else:
+        voice=voices['pro'] if args.voice is None else args.voice
 
     # filename argument
     file_path = args.input
@@ -59,7 +57,7 @@ def main():
 
     file = open(file_path, "r")
     text = file.read()
-    generator = pipeline(text, voice=voices[args.voice])
+    generator = pipeline(text, voice=voice)
 
     output_files = []
     length = 0
