@@ -66,7 +66,7 @@ Optionally, you can indicate a [voice](https://huggingface.co/hexgrad/Kokoro-82M
 $ python tts.py --voice am_michael
 ```
 
-There are four shortcuts available to the best voices: pro, hot, asmr, brit (i.e., best trained voices), and `pro` is the default if no value is given
+There are four shortcuts available to the best voices: `pro`, `hot`, `asmr`, `brit` (i.e., best trained voices), and `pro` is the default if no value is given
 
 ```bash
 $ python tts.py --voice pro # af_heart
