@@ -101,6 +101,10 @@ $ python tts.py --voice asmr # af_nicole
 $ python tts.py --voice brit # bf_emma
 ```
 
+### Disable audio player
+
+You can disable the built-in audio player with `--skip_play` if you choose to play the audio files generated with your preferred player.
+
 ## Demo Outputs
 
 ### Pro (ah_heart)

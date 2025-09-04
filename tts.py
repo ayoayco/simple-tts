@@ -50,6 +50,12 @@ def parse_args():
         default=("cuda" if torch.cuda.is_available() else ("mps" if torch.backends.mps.is_available() else ("xpu" if torch.xpu.is_available() else "cpu"))),
         help="Device for inference: cuda | mps | cpu",
     )
+    parser.add_argument(
+        "--skip_play",
+        required=False,
+        action="store_true",
+        help="Prevent playing the generated audio",
+    )
     return parser.parse_args()
 
 def generate_audio(generator, name, voice):
@@ -99,7 +105,13 @@ def main():
 
     generator = pipeline(text, voice=voice)
     output_files = generate_audio(generator, name, voice)
-    play_audio(output_files)
+    if args.skip_play:
+        print("Audio player disabled. You can play the output files manually:", output_files)
+    else:
+        try:
+            play_audio(output_files)
+        except:
+            print("Something went wrong when trying to play the audio files. Try `--skip_play` and play the output files manually:", output_files)
 
 if __name__ == "__main__":
     main()
