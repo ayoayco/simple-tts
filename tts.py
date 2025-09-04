@@ -7,12 +7,9 @@ import torch
 import argparse
 from kokoro import KPipeline
 import soundfile as sf
-# import vlc
 from tqdm import tqdm
 import pyperclip
 from yaspin import yaspin
-
-
 
 # See voices: https://huggingface.co/hexgrad/Kokoro-82M/blob/main/VOICES.md
 voices = {
@@ -168,12 +165,11 @@ def main():
     start_time = time()
     output_files = generate_audio(generator, name, voice)
     generation_time = time() - start_time
+    directory,f = os.path.split(output_files[0])
 
     if args.verbose:
         print(f"[TTS] {len(output_files)} chunks generated in {generation_time:.2f} seconds")
-        print("[TTS] Now playing generated audio...")
-
-    directory,f = os.path.split(output_files[0])
+        print(f"[TTS] Output files are in: {directory}/*")
 
     if args.skip_play:
         print(f"Audio player disabled: {directory}/*")
