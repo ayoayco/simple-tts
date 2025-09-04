@@ -1,12 +1,13 @@
 import os
 from time import sleep, time
 import warnings
+import importlib
 
 import torch
 import argparse
 from kokoro import KPipeline
 import soundfile as sf
-import vlc
+# import vlc
 from tqdm import tqdm
 import pyperclip
 
@@ -84,11 +85,12 @@ def generate_audio(generator, name, voice, device):
     return output_files
 
 def play_audio(output_files):
+    vlc_module = importlib.import_module("vlc")
     print("Now playing generated audio...")
     length = len(output_files)
     for i, output in enumerate(output_files):
         full_path = os.path.abspath(output)
-        media = vlc.MediaPlayer(f"file://{full_path}")
+        media = vlc_module.MediaPlayer(f"file://{full_path}")
         media.play()
         sleep(0.1)
         duration=media.get_length() / 1000
