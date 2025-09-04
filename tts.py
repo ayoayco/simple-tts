@@ -10,9 +10,9 @@ import soundfile as sf
 # import vlc
 from tqdm import tqdm
 import pyperclip
+from yaspin import yaspin
 
-# Disable all warnings
-warnings.filterwarnings("ignore")
+
 
 # See voices: https://huggingface.co/hexgrad/Kokoro-82M/blob/main/VOICES.md
 voices = {
@@ -55,6 +55,12 @@ def parse_args():
         help="Path to the input text file",
     )
     parser.add_argument(
+        "--verbose",
+        default=False,
+        action="store_true",
+        help="Show verbose reports",
+    )
+    parser.add_argument(
         "--clipboard",
         "-c",
         required=False,
@@ -78,28 +84,24 @@ def parse_args():
     )
     return parser.parse_args()
 
-def generate_audio(generator, name, voice, device):
-    start_time = time()
+def generate_audio(generator, name, voice):
     output_files = []
-    print(f"Using {device} device...")
-    for i, (gs, ps, audio) in enumerate(generator):
-        output_file_name=f'outputs/{name}/{name}-{voice}-{i}.wav'
-        os.makedirs(os.path.dirname(output_file_name), exist_ok=True)
-        output_files.append(output_file_name)
-        sf.write(output_file_name, audio, 24000)
-    generation_time = time() - start_time
-    print(f"{len(output_files)} chunks generated in {generation_time:.2f} seconds")
+    with yaspin():
+        for i, (gs, ps, audio) in enumerate(generator):
+            output_file_name=f'outputs/{name}/{name}-{voice}-{i}.wav'
+            os.makedirs(os.path.dirname(output_file_name), exist_ok=True)
+            output_files.append(output_file_name)
+            sf.write(output_file_name, audio, 24000)
     return output_files
 
 def play_audio(output_files):
     vlc_module = importlib.import_module("vlc")
-    print("Now playing generated audio...")
     length = len(output_files)
     for i, output in enumerate(output_files):
         full_path = os.path.abspath(output)
         media = vlc_module.MediaPlayer(f"file://{full_path}")
         media.play()
-        sleep(0.1)
+        sleep(0.01)
         duration=media.get_length() / 1000
         chunk=f"{i+1}/{length} " if length > 1 else ""
         description = f"\u25B6 {chunk}"
@@ -111,6 +113,11 @@ def play_audio(output_files):
 
 def main():
     args=parse_args()
+
+    if not args.verbose:
+        # Disable all warnings
+        warnings.filterwarnings("ignore")
+
     pipeline = KPipeline(lang_code='a', device=args.device, repo_id='hexgrad/Kokoro-82M')
     if args.voice in voices:
         voice=voices[args.voice]
@@ -155,8 +162,18 @@ def main():
         split_pattern=r'\n{2,}|[:.?!;]\n+|\n[\*\-(\d+\.)]'
     )
 
-    output_files = generate_audio(generator, name, voice, args.device)
+    if (args.verbose):
+        print(f"Using {args.device} device.")
+
+    start_time = time()
+    output_files = generate_audio(generator, name, voice)
+    generation_time = time() - start_time
     directory, output_file_name = os.path.split(output_files[0])
+
+    if args.verbose:
+        print(f"{len(output_files)} chunks generated in {generation_time:.2f} seconds")
+        print("Now playing generated audio...")
+
     if args.skip_play:
         print(f"Audio player disabled: {directory}/*")
     else:
