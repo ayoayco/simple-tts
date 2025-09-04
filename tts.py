@@ -140,6 +140,8 @@ def main():
 
     # make safe for filenames
     name = name.replace(" ", "_")
+    name = name.replace("\\", "_")
+    name = name.replace("/", "_")
 
     generator = pipeline(text, voice=voice, split_pattern=r'[:.?!;]\n+')
     output_files = generate_audio(generator, name, voice, args.device)
