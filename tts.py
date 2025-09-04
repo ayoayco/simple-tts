@@ -32,6 +32,14 @@ def parse_args():
         help="Text to read",
     )
     parser.add_argument(
+        "--title",
+        "-t",
+        required=False,
+        type=str,
+        default="generated",
+        help="Title to use as label to the generated outputs",
+    )
+    parser.add_argument(
         "--voice",
         "-v",
         required=False,
@@ -76,7 +84,7 @@ def generate_audio(generator, name, voice, device):
     output_files = []
     print(f"Using {device} device...")
     for i, (gs, ps, audio) in enumerate(generator):
-        output_file_name=f'outputs/{name}-{voice}-{i}.wav'
+        output_file_name=f'outputs/{name}/{name}-{voice}-{i}.wav'
         os.makedirs(os.path.dirname(output_file_name), exist_ok=True)
         output_files.append(output_file_name)
         sf.write(output_file_name, audio, 24000)
@@ -95,8 +103,11 @@ def play_audio(output_files):
         sleep(0.1)
         duration=media.get_length() / 1000
         chunk=f"{i+1}/{length} " if length > 1 else ""
-        description = f"\u25B6 {chunk}({'{0:0>5.2f}'.format(duration)}s)"
-        for i in tqdm(range(100), desc=description):
+        description = f"\u25B6 {chunk}"
+        for i in tqdm(range(100),
+            desc=description,
+            bar_format='{l_bar} {elapsed} {bar} {remaining}',
+            colour='yellow'):
             sleep(duration / 100)
 
 def main():
@@ -124,7 +135,10 @@ def main():
         name = "chat"
         text = args.input_text
 
-    generator = pipeline(text, voice=voice, split_pattern=r':\n+')
+    if args.title:
+        name = args.title
+
+    generator = pipeline(text, voice=voice, split_pattern=r'[:.?!;]\n+')
     output_files = generate_audio(generator, name, voice, args.device)
     if args.skip_play:
         print("Audio player disabled.", f"{name}-{voice}-#.wav")

@@ -100,6 +100,18 @@ $ python tts.py --clipboard
 $ python tts.py -c
 ```
 
+### Labeling your outputs
+
+You can indicate a title to be used as label (i.e., file name prefix and directory name) to the generated outputs using `--title`
+
+```bash
+# This will put the generated files in ./outputs/siple-greeting/
+$ python tts.py "Hello there!" --title "simple-greeting"
+
+# or shorter
+$ python tts.py "Hello there!" -t "simple-greeting"
+```
+
 ### Voices
 
 Optionally, you can indicate a voice you want to use with the `--voice` flag. See [all voices available](https://huggingface.co/hexgrad/Kokoro-82M/blob/main/VOICES.md).
