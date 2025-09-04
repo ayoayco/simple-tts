@@ -125,7 +125,6 @@ def main():
     if args.input_text == "":
         if args.clipboard:
             # use copied text
-            print('Using copied text as input...')
             text = pyperclip.paste()
             name = 'copied'
         else:
@@ -159,8 +158,10 @@ def main():
         split_pattern=r'\n{2,}|[:.?!;]\n+|\n[\*\-(\d+\.)]'
     )
 
-    if (args.verbose):
+    if args.verbose:
         print(f"[TTS] Using device: \"{args.device}\", voice: \"{voice}\", output label: \"{name}\"")
+        if args.clipboard:
+            print('[TTS] Using copied text as input.')
 
     start_time = time()
     output_files = generate_audio(generator, name, voice)
@@ -172,12 +173,12 @@ def main():
         print(f"[TTS] Output files are in: {directory}/*")
 
     if args.skip_play:
-        print(f"Audio player disabled: {directory}/*")
+        print(f"[TTS] Audio player disabled: {directory}/*")
     else:
         try:
             play_audio(output_files)
         except:
-            print(f"Something went wrong when trying to play the audio. Play the output files manually: {directory}/*")
+            print(f"[TTS] Something went wrong when trying to play the audio. Play the output files manually: {directory}/*")
 
 if __name__ == "__main__":
     main()
