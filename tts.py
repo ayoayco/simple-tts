@@ -145,13 +145,14 @@ def main():
 
     generator = pipeline(text, voice=voice, split_pattern=r'[:.?!;]\n+')
     output_files = generate_audio(generator, name, voice, args.device)
+    directory, output_file_name = os.path.split(output_files[0])
     if args.skip_play:
-        print("Audio player disabled.", f"Outputs in: {name}")
+        print(f"Audio player disabled: {directory}/*")
     else:
         try:
             play_audio(output_files)
         except:
-            print("Something went wrong when trying to play the audio files. Try `--skip_play` and play the output files manually.")
+            print(f"Something went wrong when trying to play the audio. Play the output files manually: {directory}/*")
 
 if __name__ == "__main__":
     main()
