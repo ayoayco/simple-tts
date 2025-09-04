@@ -146,7 +146,7 @@ def main():
     generator = pipeline(text, voice=voice, split_pattern=r'[:.?!;]\n+')
     output_files = generate_audio(generator, name, voice, args.device)
     if args.skip_play:
-        print("Audio player disabled.", f"{name}-{voice}-#.wav")
+        print("Audio player disabled.", f"Outputs in: {name}")
     else:
         try:
             play_audio(output_files)
