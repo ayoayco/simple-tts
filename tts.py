@@ -163,16 +163,17 @@ def main():
     )
 
     if (args.verbose):
-        print(f"Using {args.device} device.")
+        print(f"[TTS] Using device: \"{args.device}\", voice: \"{voice}\", output label: \"{name}\"")
 
     start_time = time()
     output_files = generate_audio(generator, name, voice)
     generation_time = time() - start_time
-    directory, output_file_name = os.path.split(output_files[0])
 
     if args.verbose:
-        print(f"{len(output_files)} chunks generated in {generation_time:.2f} seconds")
-        print("Now playing generated audio...")
+        print(f"[TTS] {len(output_files)} chunks generated in {generation_time:.2f} seconds")
+        print("[TTS] Now playing generated audio...")
+
+    directory,f = os.path.split(output_files[0])
 
     if args.skip_play:
         print(f"Audio player disabled: {directory}/*")
