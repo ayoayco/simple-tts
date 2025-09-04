@@ -72,7 +72,7 @@ def generate_audio(generator, name, voice):
         output_files.append(output_file_name)
         sf.write(output_file_name, audio, 24000)
     generation_time = time() - start_time
-    print(f"Generated {len(output_files)} chunks in {generation_time:.2f} seconds")
+    print(f"{len(output_files)} chunks in {generation_time:.2f} seconds")
     return output_files
 
 def play_audio(output_files):
@@ -110,12 +110,12 @@ def main():
     generator = pipeline(text, voice=voice)
     output_files = generate_audio(generator, name, voice)
     if args.skip_play:
-        print("Audio player disabled. Generated:", output_files)
+        print("Audio player disabled.", f"{name}-{voice}-#.wav")
     else:
         try:
             play_audio(output_files)
         except:
-            print("Something went wrong when trying to play the audio files. Try `--skip_play` and play the output files manually:", output_files)
+            print("Something went wrong when trying to play the audio files. Try `--skip_play` and play the output files manually.")
 
 if __name__ == "__main__":
     main()
