@@ -19,12 +19,12 @@ Create new environment. Here I use `conda`.
 ```bash
 $ conda create -n tts
 
-### for Intel XPU specific device usage:
+### (optional) for Intel XPU specific device usage:
 $ conda create -n tts --clone llm-pt26
 ```
 
-> [!Important]
-> For using Intel XPUs, you need to set up [ipex-llm environment with pytorch 2.6](https://git.ayo.run/ayo/ipex-llm/src/branch/main/docs/mddocs/Quickstart/install_pytorch26_gpu.md). Also, see [Intel XPU environmental variables"](#intel-xpu-environmental-variables) section below.
+> [!Note]
+> Optional for using Intel XPUs, you need to set up [ipex-llm environment with pytorch 2.6](https://git.ayo.run/ayo/ipex-llm/src/branch/main/docs/mddocs/Quickstart/install_pytorch26_gpu.md). Also, see [Intel XPU environmental variables"](#intel-xpu-environmental-variables) section below.
 
 Activate the environment and install the dependencies
 
@@ -45,7 +45,7 @@ $ sudo apt install vlc espeak-ng
 > [!Note]
 > Installing `vlc` via flatpak or snap will not work, as the code need access to `libvlc`.
 
-### Intel XPU environmental variables
+### Intel XPU environmental variables (Optional)
 
 For XPUs, we need to set some environmental variables. I have added a `env.sh` script which will activate the conda environment `tts` and set the environmental variables.
 
