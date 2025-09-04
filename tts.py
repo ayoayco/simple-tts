@@ -1,6 +1,7 @@
 import sys
 import os
 from time import sleep, time
+import warnings
 
 import torch
 import argparse
@@ -9,6 +10,8 @@ import soundfile as sf
 import vlc
 from tqdm import tqdm
 
+# Disable all warnings
+warnings.filterwarnings("ignore")
 
 # See voices: https://huggingface.co/hexgrad/Kokoro-82M/blob/main/VOICES.md
 voices = {
@@ -18,23 +21,32 @@ voices = {
     'brit': 'bf_emma'
 }
 
-
 def parse_args():
     parser = argparse.ArgumentParser(description="Simple TTS")
     parser.add_argument(
+        "input_text",
+        type=str,
+        nargs='?',
+        default="",
+        help="Text to read",
+    )
+    parser.add_argument(
         "--voice",
+        required=False,
         type=str,
         default="pro",
         help="Voice to use (pro, hot, asmr, brit)",
     )
     parser.add_argument(
-        "--input",
+        "--input_file",
+        required=False,
         type=str,
         default="demo/tongue-twister.txt",
-        help="Voice to use (pro, hot, asmr, brit)",
+        help="Path to the input text file",
     )
     parser.add_argument(
         "--device",
+        required=False,
         type=str,
         default=("cuda" if torch.cuda.is_available() else ("mps" if torch.backends.mps.is_available() else ("xpu" if torch.xpu.is_available() else "cpu"))),
         help="Device for inference: cuda | mps | cpu",
@@ -50,28 +62,30 @@ def main():
         voice=voices['pro'] if args.voice is None else args.voice
 
     # filename argument
-    file_path = args.input
-    directory, file_name = os.path.split(file_path)
+    if args.input_text == "":
+        file_path = args.input_file
+        directory, file_name = os.path.split(file_path)
+        name = '.'.join(file_name.split('.')[:-1])
+        file = open(file_path, "r")
+        text = file.read()
+    else:
+        name = "chat"
+        text = args.input_text
 
-    name = '.'.join(file_name.split('.')[:-1])
-
-    file = open(file_path, "r")
-    text = file.read()
     generator = pipeline(text, voice=voice)
-
     output_files = []
     length = 0
 
     start_time = time()
+    print("Generating...")
     for i, (gs, ps, audio) in enumerate(generator):
         output_file_name=f'outputs/{name}-{voice}-{i}.wav'
         os.makedirs(os.path.dirname(output_file_name), exist_ok=True)
         output_files.append(output_file_name)
         sf.write(output_file_name, audio, 24000)
-        print(u'\u2713', output_file_name)
         length = length + 1
     generation_time = time() - start_time
-    print(f"Generation time: {generation_time:.2f} seconds")
+    print(f"Done in {generation_time:.2f} seconds")
 
     for i, output in enumerate(output_files):
         full_path = os.path.abspath(output)

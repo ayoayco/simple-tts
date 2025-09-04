@@ -69,10 +69,16 @@ Running the program without arguments will use the demo text `tongue-twister.txt
 $ python tts.py # will use default arguments
 ```
 
-To run the program with an input file, use flag `--input`.
+You can pass a string as first argument:
 
 ```bash
-$ python tts.py --input demo/tongue-twister.txt
+$ python tts.py "Hello world!" # will be read by the default voice
+```
+
+To run the program with an input file, use flag `--input_file`.
+
+```bash
+$ python tts.py --input_file demo/tongue-twister.txt
 ```
 
 ### Voices
