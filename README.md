@@ -74,6 +74,8 @@ Running the program without arguments will use the demo text `tongue-twister.txt
 $ python tts.py # will use default arguments
 ```
 
+### Providing text inputs
+
 You can pass a string as first argument:
 
 ```bash
@@ -87,6 +89,15 @@ $ python tts.py --input_file demo/tongue-twister.txt
 
 # or shorter...
 $ python tts.py -i demo/tongue-twister.txt
+```
+
+You can also use the text stored in your clipboard (i.e., copied text). Select a text from anywhere (e.g., your web browser), copy it with `<ctrl>+C` or the context menu, then use the flag `--clipboard`:
+
+```bash
+$ python tts.py --clipboard
+
+# or shorter...
+$ python tts.py -c
 ```
 
 ### Voices

@@ -8,6 +8,7 @@ from kokoro import KPipeline
 import soundfile as sf
 import vlc
 from tqdm import tqdm
+import pyperclip
 
 # Disable all warnings
 warnings.filterwarnings("ignore")
@@ -44,6 +45,13 @@ def parse_args():
         type=str,
         default="demo/tongue-twister.txt",
         help="Path to the input text file",
+    )
+    parser.add_argument(
+        "--clipboard",
+        "-c",
+        required=False,
+        action="store_true",
+        help="Use text from the clipboard (i.e., copied text)",
     )
     parser.add_argument(
         "--device",
@@ -98,11 +106,17 @@ def main():
 
     # filename argument
     if args.input_text == "":
-        file_path = args.input_file
-        directory, file_name = os.path.split(file_path)
-        name = '.'.join(file_name.split('.')[:-1])
-        file = open(file_path, "r")
-        text = file.read()
+        if args.clipboard:
+            # use copied text
+            print('Using copied text as input...')
+            text = pyperclip.paste()
+            name = 'copied'
+        else:
+            file_path = args.input_file
+            directory, file_name = os.path.split(file_path)
+            name = '.'.join(file_name.split('.')[:-1])
+            file = open(file_path, "r")
+            text = file.read()
     else:
         name = "chat"
         text = args.input_text

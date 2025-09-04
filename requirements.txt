@@ -4,3 +4,4 @@ python-vlc
 tqdm
 argparse
 torch
+pyperclip
