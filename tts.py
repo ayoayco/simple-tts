@@ -143,7 +143,19 @@ def main():
     name = name.replace("\\", "_")
     name = name.replace("/", "_")
 
-    generator = pipeline(text, voice=voice, split_pattern=r'[:.?!;]\n+|\n[*-]')
+    '''
+        Split patterns:
+        - only multiple consecutive new line (to handle wrapped statements)
+        - statements ending in punctuations (:.?!;)
+        - list items starting in '-' or '*'
+        - numbered items starting with a digit followed by a dot '.'
+    '''
+    generator = pipeline(
+        text,
+        voice=voice,
+        split_pattern=r'\n{2,}|[:.?!;]\n+|\n[\*\-(\d+\.)]'
+    )
+
     output_files = generate_audio(generator, name, voice, args.device)
     directory, output_file_name = os.path.split(output_files[0])
     if args.skip_play:
