@@ -152,3 +152,7 @@ https://git.ayo.run/ayo/simple-tts/src/branch/main/demo/tongue-twister-af_nicole
 https://git.ayo.run/ayo/simple-tts/src/branch/main/demo/tongue-twister-af_nicole-1.wav
 
 https://git.ayo.run/ayo/simple-tts/src/branch/main/demo/tongue-twister-af_nicole-2.wav
+
+### Screenshot
+
+![Simple TTS Screenshot](screenshot.png)
