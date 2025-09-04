@@ -2,6 +2,7 @@ import os
 from time import sleep, time
 import warnings
 import importlib
+import random
 
 import torch
 import argparse
@@ -18,6 +19,20 @@ voices = {
     'asmr':'af_nicole',
     'brit': 'bf_emma'
 }
+
+prep_texts = [
+    "Check mic, 1-2-3...",
+    "*Tap* *tap* ... Is this thing on?",
+    "Ready, set... *Ahem!*",
+    "Mic's on, lights are set, I'm ready to roll.",
+    "All set? Let's make it a good one.",
+    "Ready, set, go—now that's the real countdown.",
+    "Checking the mic, one, two, three.",
+    "Lights, mic, action—now let's do this.",
+    "Hold tight—this is about to get interesting.",
+    "If the mic works, we're good to go.",
+    "All systems green—let's make this a good one."
+]
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Simple TTS", allow_abbrev=False)
@@ -83,12 +98,12 @@ def parse_args():
 
 def generate_audio(generator, name, voice):
     output_files = []
-    with yaspin():
-        for i, (gs, ps, audio) in enumerate(generator):
-            output_file_name=f'outputs/{name}/{name}-{voice}-{i}.wav'
-            os.makedirs(os.path.dirname(output_file_name), exist_ok=True)
-            output_files.append(output_file_name)
-            sf.write(output_file_name, audio, 24000)
+
+    for i, (gs, ps, audio) in enumerate(generator):
+        output_file_name=f'outputs/{name}/{name}-{voice}-{i}.wav'
+        os.makedirs(os.path.dirname(output_file_name), exist_ok=True)
+        output_files.append(output_file_name)
+        sf.write(output_file_name, audio, 24000)
     return output_files
 
 def play_audio(output_files):
@@ -108,70 +123,80 @@ def play_audio(output_files):
             colour='yellow'):
             sleep(duration / 100)
 
+
 def main():
-    args=parse_args()
 
-    if not args.verbose:
-        # Disable all warnings
-        warnings.filterwarnings("ignore")
+    # Get a randome "preparing" text
+    spinner_text = random.choice(prep_texts)
 
-    pipeline = KPipeline(lang_code='a', device=args.device, repo_id='hexgrad/Kokoro-82M')
-    if args.voice in voices:
-        voice=voices[args.voice]
-    else:
-        voice=voices['pro'] if args.voice is None else args.voice
+    # Generate audio
+    with yaspin() as spinner:
+        spinner.text = spinner_text
+ 
+        args=parse_args()
 
-    # filename argument
-    if args.input_text == "":
-        if args.clipboard:
-            # use copied text
-            text = pyperclip.paste()
-            name = 'copied'
+        if not args.verbose:
+            # Disable all warnings
+            warnings.filterwarnings("ignore")
+ 
+        pipeline = KPipeline(lang_code='a', device=args.device, repo_id='hexgrad/Kokoro-82M')
+        if args.voice in voices:
+            voice=voices[args.voice]
         else:
-            file_path = args.input_file
-            directory, file_name = os.path.split(file_path)
-            name = '.'.join(file_name.split('.')[:-1])
-            file = open(file_path, "r")
-            text = file.read()
-    else:
-        name = "chat"
-        text = args.input_text
+            voice=voices['pro'] if args.voice is None else args.voice
 
-    if args.title:
-        name = args.title
+        # filename argument
+        if args.input_text == "":
+            if args.clipboard:
+                # use copied text
+                text = pyperclip.paste()
+                name = 'copied'
+            else:
+                file_path = args.input_file
+                directory, file_name = os.path.split(file_path)
+                name = '.'.join(file_name.split('.')[:-1])
+                file = open(file_path, "r")
+                text = file.read()
+        else:
+            name = "chat"
+            text = args.input_text
 
-    # make safe for filenames
-    name = name.replace(" ", "_")
-    name = name.replace("\\", "_")
-    name = name.replace("/", "_")
+        if args.title:
+            name = args.title
 
-    '''
-        Split patterns:
-        - only multiple consecutive new line (to handle wrapped statements)
-        - statements ending in punctuations (:.?!;)
-        - list items starting in '-' or '*'
-        - numbered items starting with a digit followed by a dot '.'
-    '''
-    generator = pipeline(
-        text,
-        voice=voice,
-        split_pattern=r'\n{2,}|[:.?!;]\n+|\n[\*\-(\d+\.)]'
-    )
+        # make safe for filenames
+        name = name.replace(" ", "_")
+        name = name.replace("\\", "_")
+        name = name.replace("/", "_")
 
-    if args.verbose:
-        print(f"[TTS] Using device: \"{args.device}\", voice: \"{voice}\", output label: \"{name}\"")
-        if args.clipboard:
-            print('[TTS] Using copied text as input.')
+        '''
+            Split patterns:
+            - only multiple consecutive new line (to handle wrapped statements)
+            - statements ending in punctuations (:.?!;)
+            - list items starting in '-' or '*'
+            - numbered items starting with a digit followed by a dot '.'
+        '''
+        generator = pipeline(
+            text,
+            voice=voice,
+            split_pattern=r'\n{2,}|[:.?!;]\n+|\n[\*\-(\d+\.)]'
+        )
 
-    start_time = time()
-    output_files = generate_audio(generator, name, voice)
-    generation_time = time() - start_time
-    directory,f = os.path.split(output_files[0])
+        if args.verbose:
+            print(f"[TTS] Using device: \"{args.device}\", voice: \"{voice}\", output label: \"{name}\"")
+            if args.clipboard:
+                print('[TTS] Using copied text as input.')
 
-    if args.verbose:
-        print(f"[TTS] {len(output_files)} chunks generated in {generation_time:.2f} seconds")
-        print(f"[TTS] Output files are in: {directory}/*")
+        start_time = time()
+        output_files = generate_audio(generator, name, voice)
+        generation_time = time() - start_time
+        directory,f = os.path.split(output_files[0])
 
+        if args.verbose:
+            print(f"[TTS] {len(output_files)} chunks generated in {generation_time:.2f} seconds")
+            print(f"[TTS] Output files are in: {directory}/*")
+
+    # Play audio
     if args.skip_play:
         print(f"[TTS] Audio player disabled: {directory}/*")
     else:
