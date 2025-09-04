@@ -123,7 +123,6 @@ def play_audio(output_files):
             colour='yellow'):
             sleep(duration / 100)
 
-
 def main():
 
     # Get a randome "preparing" text
