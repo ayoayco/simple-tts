@@ -122,7 +122,7 @@ def main():
         name = "chat"
         text = args.input_text
 
-    generator = pipeline(text, voice=voice)
+    generator = pipeline(text, voice=voice, split_pattern=None)
     output_files = generate_audio(generator, name, voice, args.device)
     if args.skip_play:
         print("Audio player disabled.", f"{name}-{voice}-#.wav")
