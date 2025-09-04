@@ -84,6 +84,9 @@ To run the program with an input file, use flag `--input_file`.
 
 ```bash
 $ python tts.py --input_file demo/tongue-twister.txt
+
+# or shorter...
+$ python tts.py -i demo/tongue-twister.txt
 ```
 
 ### Voices
@@ -92,6 +95,9 @@ Optionally, you can indicate a voice you want to use with the `--voice` flag. Se
 
 ```bash
 $ python tts.py --voice am_michael
+
+# or shorter...
+$ python tts.py -v am_michael
 ```
 
 There are four shortcuts available to the best voices: `pro`, `hot`, `asmr`, `brit` (i.e., best trained voices), and `pro` is the default if no value is given
@@ -112,6 +118,9 @@ You can disable the built-in audio player with `--skip_play` if you choose to pl
 
 ```bash
 $ python tts.py "Hello there!" --voice asmr --skip_play
+
+# or shorter...
+$ python tts.py "Hello there!" --voice asmr -s
 
 ```
 

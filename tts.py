@@ -21,7 +21,7 @@ voices = {
 }
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="Simple TTS")
+    parser = argparse.ArgumentParser(description="Simple TTS", allow_abbrev=False)
     parser.add_argument(
         "input_text",
         type=str,
@@ -31,6 +31,7 @@ def parse_args():
     )
     parser.add_argument(
         "--voice",
+        "-v",
         required=False,
         type=str,
         default="pro",
@@ -38,6 +39,7 @@ def parse_args():
     )
     parser.add_argument(
         "--input_file",
+        "-i",
         required=False,
         type=str,
         default="demo/tongue-twister.txt",
@@ -45,6 +47,7 @@ def parse_args():
     )
     parser.add_argument(
         "--device",
+        "-d",
         required=False,
         type=str,
         default=("cuda" if torch.cuda.is_available() else ("mps" if torch.backends.mps.is_available() else ("xpu" if torch.xpu.is_available() else "cpu"))),
@@ -52,6 +55,7 @@ def parse_args():
     )
     parser.add_argument(
         "--skip_play",
+        "-s",
         required=False,
         action="store_true",
         help="Prevent playing the generated audio",
