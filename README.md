@@ -1,6 +1,9 @@
 # Simple TTS
 
-A simple text-to-speech program powered by [kokoro](https://huggingface.co/hexgrad/Kokoro-82M).
+A simple machine learning text-to-speech program powered by [kokoro](https://huggingface.co/hexgrad/Kokoro-82M).
+
+> [!Warning]
+> This is currently only tested working on Ubuntu-based distros due to the [required packages](#required-packages).
 
 ## Setup
 
@@ -30,11 +33,13 @@ $ conda activate tts
 $ python -m pip install -r requirements.txt
 ```
 
-Because `vlc` is used to automatically play the generated audio, you will have to install it:
+### Required packages
+
+The following are required packages aside from the python dependencies. `espeak-ng` is used by `kokoro` under the hood for english languages, and `libvlc` is used as the default audio player for the generated audio.
 
 ```bash
 $ sudo apt update
-$ sudo apt install vlc
+$ sudo apt install vlc espeak-ng
 ```
 
 > [!Note]
