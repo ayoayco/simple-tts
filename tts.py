@@ -62,17 +62,17 @@ def parse_args():
     )
     return parser.parse_args()
 
-def generate_audio(generator, name, voice):
+def generate_audio(generator, name, voice, device):
     start_time = time()
     output_files = []
-    print("Generating...")
+    print(f"Using {device} device...")
     for i, (gs, ps, audio) in enumerate(generator):
         output_file_name=f'outputs/{name}-{voice}-{i}.wav'
         os.makedirs(os.path.dirname(output_file_name), exist_ok=True)
         output_files.append(output_file_name)
         sf.write(output_file_name, audio, 24000)
     generation_time = time() - start_time
-    print(f"{len(output_files)} chunks in {generation_time:.2f} seconds")
+    print(f"{len(output_files)} chunks generated in {generation_time:.2f} seconds")
     return output_files
 
 def play_audio(output_files):
@@ -108,7 +108,7 @@ def main():
         text = args.input_text
 
     generator = pipeline(text, voice=voice)
-    output_files = generate_audio(generator, name, voice)
+    output_files = generate_audio(generator, name, voice, args.device)
     if args.skip_play:
         print("Audio player disabled.", f"{name}-{voice}-#.wav")
     else:
