@@ -3,6 +3,9 @@
 *swo
 
 __pycache__
+*.spec
 
+build/
+dist/
 outputs/
 inputs/
