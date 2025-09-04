@@ -36,7 +36,6 @@ def parse_args():
         "-t",
         required=False,
         type=str,
-        default="generated",
         help="Title to use as label to the generated outputs",
     )
     parser.add_argument(
