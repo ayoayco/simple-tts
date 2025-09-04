@@ -84,6 +84,7 @@ def generate_audio(generator, name, voice, device):
     return output_files
 
 def play_audio(output_files):
+    print("Now playing generated audio...")
     length = len(output_files)
     for i, output in enumerate(output_files):
         full_path = os.path.abspath(output)
