@@ -143,7 +143,7 @@ def main():
     name = name.replace("\\", "_")
     name = name.replace("/", "_")
 
-    generator = pipeline(text, voice=voice, split_pattern=r'[:.?!;]\n+')
+    generator = pipeline(text, voice=voice, split_pattern=r'[:.?!;]\n+|\n[*-]')
     output_files = generate_audio(generator, name, voice, args.device)
     directory, output_file_name = os.path.split(output_files[0])
     if args.skip_play:
