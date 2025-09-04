@@ -92,22 +92,27 @@ $ python tts.py --voice am_michael
 There are four shortcuts available to the best voices: `pro`, `hot`, `asmr`, `brit` (i.e., best trained voices), and `pro` is the default if no value is given
 
 ```bash
-$ python tts.py --voice pro # af_heart
+$ python tts.py "Hello there!" --voice pro # af_heart
 
-$ python tts.py --voice hot # af_bella
+$ python tts.py "Hello there!" --voice hot # af_bella
 
-$ python tts.py --voice asmr # af_nicole
+$ python tts.py "Hello there!" --voice asmr # af_nicole
 
-$ python tts.py --voice brit # bf_emma
+$ python tts.py "Hello there!" --voice brit # bf_emma
 ```
 
 ### Disable audio player
 
 You can disable the built-in audio player with `--skip_play` if you choose to play the audio files generated with your preferred player.
 
+```bash
+$ python tts.py "Hello there!" --voice asmr --skip_play
+
+```
+
 ## Demo Outputs
 
-### Pro (ah_heart)
+### Voice: pro (ah_heart)
 
 https://git.ayo.run/ayo/simple-tts/src/branch/main/demo/tongue-twister-af_heart-0.wav
 
@@ -115,7 +120,7 @@ https://git.ayo.run/ayo/simple-tts/src/branch/main/demo/tongue-twister-af_heart-
 
 https://git.ayo.run/ayo/simple-tts/src/branch/main/demo/tongue-twister-af_heart-2.wav
 
-### ASMR (ah_nicole)
+### Voice: asmr (ah_nicole)
 
 https://git.ayo.run/ayo/simple-tts/src/branch/main/demo/tongue-twister-af_nicole-0.wav
 
