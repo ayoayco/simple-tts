@@ -147,6 +147,22 @@ $ python tts.py "Hello there!" --voice asmr -s
 
 ```
 
+### Advanced usages
+
+The `--verbose` flag can be used to show more informative messages.
+
+```bash
+$ python tts.py --verbose
+```
+
+The `--device` or `-d` flag can be used to set the desired device (i.e., processor) to use:
+
+```bash
+$ python tts.py --device cpu # will use the cpu
+$ python tts.py --device cuda # will use the NVIDIA GPU
+$ python tts.py --device xpu # will use the Intel GPU
+```
+
 ## Demo Outputs
 
 ### Voice: pro (ah_heart)
