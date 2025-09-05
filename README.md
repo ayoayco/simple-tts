@@ -1,13 +1,23 @@
 # Simple TTS
 
-A simple machine learning text-to-speech program powered by [kokoro](https://huggingface.co/hexgrad/Kokoro-82M).
+A simple machine learning text-to-speech program for your terminal. Hear text read aloud by realistic voices; from a file or your clipboard.
+
+## Features
+
+1. Terminal-first user experience
+1. Many realistic voices available
+1. Use any length of text
+1. Saved raw audio files in sensible chunks
+1. Use copied text as input
+1. Utilize different GPUs as accelerator — Intel architecture supported!
 
 ## Requirements
-This is in early development, and not packaged or distributed yet for any particular operating system. Please read on to see the tested environment I am developing & using it on
+
+**Simple TTS** is in early development, and not packaged or distributed yet for any particular operating system. Please read on to see the tested environment I am developing & using it:
 
 1. This is currently only tested working on Debian or Ubuntu-based distros.
 1. GPU accelerators make the program run faster, but you need to have updated drivers for your device that `PyTorch` requires. However, it will still run fine on CPUs, just slower (up to 2x longer or more).
-1. The following are required packages aside from the python dependencies. `espeak-ng` is used by `kokoro` under the hood as a fallback engine for English languages, and `libvlc` is used as the default audio player for the generated audio.
+1. The following are required packages aside from the python dependencies. `espeak-ng` is used under the hood as a fallback engine for English languages, and `libvlc` is used as the default audio player for the generated audio.
 
 ```bash
 sudo apt update
