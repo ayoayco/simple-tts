@@ -178,17 +178,17 @@ python tts.py "Hello there!" --voice brit # bf_emma
 
 It is possible that the there are additional setup for a specific voice language. If you encounter a problem, please refer to the [language-specific setup section](#language-specific-setup) ane read the requirements text file for the language you want to use for possible additional steps. For example, using Japanese requires you to choose a dictionary and initialize a configuration file.
 
-| Language             | lang_code | requirements file               |
-| -------------------- | --------- | ------------------------------- |
-| American English     | 'a'       | **non additional requirements** |
-| British English      | 'b'       | **no additional requirements**  |
-| Chinese              | 'z'       | requirements-zh.txt             |
-| Japanese             | 'j'       | requirements-jp.txt             |
-| Spanish              | 'e'       | _no additional requirements_    |
-| French               | 'f'       | _no additional requirements_    |
-| Hindi                | 'h'       | _no additional requirements_    |
-| Italian              | 'i'       | _no additional requirements_    |
-| Brazilian Portuguese | 'p'       | _no additional requirements_    |
+| Language             | lang_code | requirements file             |
+| -------------------- | --------- | ----------------------------- |
+| American English     | 'a'       | _non additional requirements_ |
+| British English      | 'b'       | _no additional requirements_  |
+| Chinese              | 'z'       | requirements-zh.txt           |
+| Japanese             | 'j'       | requirements-jp.txt           |
+| Spanish              | 'e'       | _no additional requirements_  |
+| French               | 'f'       | _no additional requirements_  |
+| Hindi                | 'h'       | _no additional requirements_  |
+| Italian              | 'i'       | _no additional requirements_  |
+| Brazilian Portuguese | 'p'       | _no additional requirements_  |
 
 > [!Note]
 > Voices are prefixed with the language code and their gender. For example, 'af' means it is American English and Female. 'zm' means it is Chinese and Male.
