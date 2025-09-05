@@ -26,6 +26,7 @@ This is especially useful for the days when I don't have the mental energy to go
 1. This is currently only tested working on Debian or Ubuntu-based distros.
 1. GPU accelerators make the program run faster, but you need to have updated drivers for your device that `PyTorch` requires. However, it will still run fine on CPUs, just slower (up to 2x longer or more).
 1. The following are required packages aside from the python dependencies. `espeak-ng` is used under the hood as a fallback engine for English languages, and `libvlc` is used as the default audio player for the generated audio.
+1. Because it is not yet packaged or compiled, the dependencies and models are downloaded separately into your machine (within the python environment) and requires storage space.
 
 ```bash
 sudo apt update
