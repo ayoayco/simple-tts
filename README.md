@@ -2,6 +2,14 @@
 
 A simple machine learning text-to-speech program for your terminal. Hear text read aloud by realistic voices; from a file or your clipboard.
 
+## Motivation
+
+Text-to-speech is not always supported in many digital platforms out there. The quality is also not consistent.
+
+Having **Simple TTS** run on the terminal and locally on my machine provides a cozy and private environment I feel safe to use.
+
+This is especially useful for the days when I don't have the mental energy to go through the many written communication or resources I have to, and a little push is needed.
+
 ## Features
 
 1. Terminal-first user experience
