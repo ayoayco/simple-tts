@@ -2,8 +2,21 @@
 
 A simple machine learning text-to-speech program powered by [kokoro](https://huggingface.co/hexgrad/Kokoro-82M).
 
-> [!Warning]
-> This is currently only tested working on Ubuntu-based distros due to the [required packages](#required-packages).
+## Requirements
+This is in early development, and not packaged or distributed yet for any particular operating system. Please read on to see the tested environment I am developing & using it on
+
+1. This is currently only tested working on Debian or Ubuntu-based distros.
+1. GPU accelerators make the program run faster, but you need to have updated drivers for your device that `PyTorch` requires. However, it will still run fine on CPUs, just slower (up to 2x longer or more).
+1. The following are required packages aside from the python dependencies. `espeak-ng` is used by `kokoro` under the hood as a fallback engine for English languages, and `libvlc` is used as the default audio player for the generated audio.
+
+```bash
+sudo apt update
+sudo apt install vlc espeak-ng
+```
+
+> [!Note]
+> Installing `vlc` via flatpak or snap will not work, as the code need access to `libvlc`.
+
 
 ## Setup
 
@@ -33,17 +46,6 @@ conda activate tts
 python -m pip install -r requirements.txt
 ```
 
-### Required packages
-
-The following are required packages aside from the python dependencies. `espeak-ng` is used by `kokoro` under the hood for english languages, and `libvlc` is used as the default audio player for the generated audio.
-
-```bash
-sudo apt update
-sudo apt install vlc espeak-ng
-```
-
-> [!Note]
-> Installing `vlc` via flatpak or snap will not work, as the code need access to `libvlc`.
 
 ### Intel XPU environmental variables (Optional)
 
