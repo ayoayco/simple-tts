@@ -13,7 +13,7 @@ A simple machine learning text-to-speech program for your terminal. Hear text re
 
 ## Requirements
 
-**Simple TTS** is in early development, and not packaged or distributed yet for any particular operating system. Please read on to see the tested environment I am developing & using it:
+**Simple TTS** is in early development, and not packaged or distributed yet for any particular operating system. Please read on to see the tested environment under which I am developing & using it:
 
 1. This is currently only tested working on Debian or Ubuntu-based distros.
 1. GPU accelerators make the program run faster, but you need to have updated drivers for your device that `PyTorch` requires. However, it will still run fine on CPUs, just slower (up to 2x longer or more).
