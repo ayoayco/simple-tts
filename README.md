@@ -10,17 +10,17 @@ A simple machine learning text-to-speech program powered by [kokoro](https://hug
 Clone repo and go into the directory
 
 ```bash
-$ git clone https://git.ayo.run/ayo/simple-tts
-$ cd simple-tts
+git clone https://git.ayo.run/ayo/simple-tts
+cd simple-tts
 ```
 
 Create new [Python virtual environment](https://realpython.com/python-virtual-environments-a-primer/). Here I use [`conda`](https://docs.conda.io/projects/conda/en/latest/user-guide/install/), but [venv](https://docs.python.org/3/library/venv.html) is also good.
 
 ```bash
-$ conda create -n tts
+conda create -n tts
 
 ### (optional) for Intel XPU specific device usage:
-$ conda create -n tts --clone llm-pt26
+conda create -n tts --clone llm-pt26
 ```
 
 > [!Note]
@@ -29,8 +29,8 @@ $ conda create -n tts --clone llm-pt26
 Activate the environment and install the dependencies
 
 ```bash
-$ conda activate tts
-$ python -m pip install -r requirements.txt
+conda activate tts
+python -m pip install -r requirements.txt
 ```
 
 ### Required packages
@@ -38,8 +38,8 @@ $ python -m pip install -r requirements.txt
 The following are required packages aside from the python dependencies. `espeak-ng` is used by `kokoro` under the hood for english languages, and `libvlc` is used as the default audio player for the generated audio.
 
 ```bash
-$ sudo apt update
-$ sudo apt install vlc espeak-ng
+sudo apt update
+sudo apt install vlc espeak-ng
 ```
 
 > [!Note]
@@ -50,7 +50,7 @@ $ sudo apt install vlc espeak-ng
 For XPUs, we need to set some environmental variables. I have added a `env.sh` script which will activate the conda environment `tts` and set the environmental variables.
 
 ```bash
-$ . env.sh
+. env.sh
 ```
 
 ## Usage
@@ -58,20 +58,20 @@ $ . env.sh
 Go into the directory and activate the environment:
 
 ```bash
-$ cd simple-tts
-$ conda activate tts
+cd simple-tts
+conda activate tts
 ```
 
 If using Intel XPUs, set the env variables
 
 ```bash
-$ . env.sh
+. env.sh
 ```
 
 Running the program without arguments will use the demo text `tongue-twister.txt` with the default voice.
 
 ```bash
-$ python tts.py # will use default arguments
+python tts.py # will use default arguments
 ```
 
 ### Providing text inputs
@@ -79,25 +79,25 @@ $ python tts.py # will use default arguments
 You can pass a string as first argument:
 
 ```bash
-$ python tts.py "Hello world!" # will be read by the default voice
+python tts.py "Hello world!" # will be read by the default voice
 ```
 
 To run the program with an input file, use flag `--input_file`.
 
 ```bash
-$ python tts.py --input_file demo/tongue-twister.txt
+python tts.py --input_file demo/tongue-twister.txt
 
 # or shorter...
-$ python tts.py -i demo/tongue-twister.txt
+python tts.py -i demo/tongue-twister.txt
 ```
 
 You can also use the text stored in your clipboard (i.e., copied text). Select a text from anywhere (e.g., your web browser), copy it with `<ctrl>+C` or the context menu, then use the flag `--clipboard`:
 
 ```bash
-$ python tts.py --clipboard
+python tts.py --clipboard
 
 # or shorter...
-$ python tts.py -c
+python tts.py -c
 ```
 
 ### Labeling your outputs
@@ -106,10 +106,10 @@ You can indicate a title to be used as label (i.e., file name prefix and directo
 
 ```bash
 # This will put the generated files in ./outputs/siple-greeting/
-$ python tts.py "Hello there!" --title "simple-greeting"
+python tts.py "Hello there!" --title "simple-greeting"
 
 # or shorter
-$ python tts.py "Hello there!" -t "simple-greeting"
+python tts.py "Hello there!" -t "simple-greeting"
 ```
 
 ### Voices
@@ -117,22 +117,22 @@ $ python tts.py "Hello there!" -t "simple-greeting"
 Optionally, you can indicate a voice you want to use with the `--voice` flag. See [all voices available](https://huggingface.co/hexgrad/Kokoro-82M/blob/main/VOICES.md).
 
 ```bash
-$ python tts.py --voice am_michael
+python tts.py --voice am_michael
 
 # or shorter...
-$ python tts.py -v am_michael
+python tts.py -v am_michael
 ```
 
 There are four shortcuts available to the best voices: `pro`, `hot`, `asmr`, `brit` (i.e., best trained voices), and `pro` is the default if no value is given
 
 ```bash
-$ python tts.py "Hello there!" --voice pro # af_heart
+python tts.py "Hello there!" --voice pro # af_heart
 
-$ python tts.py "Hello there!" --voice hot # af_bella
+python tts.py "Hello there!" --voice hot # af_bella
 
-$ python tts.py "Hello there!" --voice asmr # af_nicole
+python tts.py "Hello there!" --voice asmr # af_nicole
 
-$ python tts.py "Hello there!" --voice brit # bf_emma
+python tts.py "Hello there!" --voice brit # bf_emma
 ```
 
 ### Disable audio player
@@ -140,10 +140,10 @@ $ python tts.py "Hello there!" --voice brit # bf_emma
 You can disable the built-in audio player with `--skip_play` if you choose to play the audio files generated with your preferred player.
 
 ```bash
-$ python tts.py "Hello there!" --voice asmr --skip_play
+python tts.py "Hello there!" --voice asmr --skip_play
 
 # or shorter...
-$ python tts.py "Hello there!" --voice asmr -s
+python tts.py "Hello there!" --voice asmr -s
 
 ```
 
@@ -152,15 +152,15 @@ $ python tts.py "Hello there!" --voice asmr -s
 The `--verbose` flag can be used to show more informative messages.
 
 ```bash
-$ python tts.py --verbose
+python tts.py --verbose
 ```
 
 The `--device` or `-d` flag can be used to set the desired device (i.e., processor) to use:
 
 ```bash
-$ python tts.py --device cpu # will use the cpu
-$ python tts.py --device cuda # will use the NVIDIA GPU
-$ python tts.py --device xpu # will use the Intel GPU
+python tts.py --device cpu # will use the cpu
+python tts.py --device cuda # will use the NVIDIA GPU
+python tts.py --device xpu # will use the Intel GPU
 ```
 
 ## Demo Outputs
