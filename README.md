@@ -65,9 +65,7 @@ pip install -r requirements.txt
 
 ### Language-specific setup
 
-There are language-specific python dependencies.
-
-For example, if you will use Chinese voices (see [voices usage](#voices)), please install the requirements `requirements-zh.txt` ... supporting more languages is still a work in progress.
+For some languages, you might need to install specific python dependecies. For example, before you can use Chinese voices you have to install the requirements listed in `requirements-zh.txt`.
 
 ```bash
 # Before using zf or zm prefixed voices...
@@ -81,20 +79,10 @@ pip install -r requirements-jp.txt
 
 ## then you can use voices for Japanese texts:
 python tts.py -v jf_alpha "言い習わし"
-
 ```
 
-Please also read the requirements text file for the language you want to use, as there may be additional instructions there. For example, using Japanese you may want to choose a dictionary and initialize a configuration file.
-
-| Language | lang_code | requirements file            |
-| -------- | --------- | ---------------------------- |
-| Chinese  | 'z'       | requirements-zh.txt          |
-| Japanese | 'j'       | requirements-jp.txt          |
-| Spanish  | 'e'       | _no additional requirements_ |
-| French   | 'f'       | _no additional requirements_ |
-
 > [!Note]
-> Voices are prefixed with the language code and their gender. For example, 'af' means it is American English and Female. 'zm' means it is Chinese and Make. You can read more about using different voices in the [Voices](#voices) secton.
+> You can read more about using different voices in the [Voices](#voices) secton.
 
 ### Intel XPU environmental variables (Optional)
 
@@ -187,6 +175,23 @@ python tts.py "Hello there!" --voice asmr # af_nicole
 
 python tts.py "Hello there!" --voice brit # bf_emma
 ```
+
+It is possible that the there are additional setup for a specific voice language. If you encounter a problem, please refer to the [language-specific setup section](#language-specific-setup) ane read the requirements text file for the language you want to use for possible additional steps. For example, using Japanese requires you to choose a dictionary and initialize a configuration file.
+
+| Language             | lang_code | requirements file               |
+| -------------------- | --------- | ------------------------------- |
+| American English     | 'a'       | **non additional requirements** |
+| British English      | 'b'       | **no additional requirements**  |
+| Chinese              | 'z'       | requirements-zh.txt             |
+| Japanese             | 'j'       | requirements-jp.txt             |
+| Spanish              | 'e'       | _no additional requirements_    |
+| French               | 'f'       | _no additional requirements_    |
+| Hindi                | 'h'       | _no additional requirements_    |
+| Italian              | 'i'       | _no additional requirements_    |
+| Brazilian Portuguese | 'p'       | _no additional requirements_    |
+
+> [!Note]
+> Voices are prefixed with the language code and their gender. For example, 'af' means it is American English and Female. 'zm' means it is Chinese and Male.
 
 ### Disable audio player
 
