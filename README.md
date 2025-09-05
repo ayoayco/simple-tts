@@ -35,7 +35,6 @@ sudo apt install vlc espeak-ng
 > [!Note]
 > Installing `vlc` via flatpak or snap will not work, as the code need access to `libvlc`.
 
-
 ## Setup
 
 Clone repo and go into the directory
@@ -61,9 +60,19 @@ Activate the environment and install the dependencies
 
 ```bash
 conda activate tts
-python -m pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 
+## Language-specific dependencies
+
+There are language-specific python dependencies. For example, if you will use Chinese voices (see [voices usage](#voices)), please install the requirements `requirements-zh.txt` ... supporting more languages is still a work in progress.
+
+```bash
+pip install -r requirements-zh.txt
+
+## then you can use zh-prefixed voices for Chinese texts:
+python tts.py -v zf_xiaoni "事实胜于雄辩"
+```
 
 ### Intel XPU environmental variables (Optional)
 
