@@ -1,4 +1,5 @@
 # for zh
+misaki[zh]
 pinyin_to_ipa
 cn2an
 jieba

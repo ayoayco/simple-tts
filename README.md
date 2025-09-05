@@ -70,13 +70,13 @@ There are language-specific python dependencies.
 For example, if you will use Chinese voices (see [voices usage](#voices)), please install the requirements `requirements-zh.txt` ... supporting more languages is still a work in progress.
 
 ```bash
-# Before using zh-* prefixed voices...
+# Before using zf or zm prefixed voices...
 pip install -r requirements-zh.txt
 
 ## then you can use voices for Chinese texts:
 python tts.py -v zf_xiaoni "事实胜于雄辩"
 
-## Before using jp-* prefixed voices...
+## Before using jf or jm prefixed voices...
 pip install -r requirements-jp.txt
 
 ## then you can use voices for Japanese texts:
@@ -86,13 +86,15 @@ python tts.py -v jf_alpha "言い習わし"
 
 Please also read the requirements text file for the language you want to use, as there may be additional instructions there. For example, using Japanese you may want to choose a dictionary and initialize a configuration file.
 
-| Language | lang_code | voice prefix | requirements file   |
-| -------- | --------- | ------------ | ------------------- |
-| Chinese  | 'z'       | 'zh'         | requirements-zh.txt |
-| Japanese | 'j'       | 'jp'         | requirements-jp.txt |
+| Language | lang_code | requirements file            |
+| -------- | --------- | ---------------------------- |
+| Chinese  | 'z'       | requirements-zh.txt          |
+| Japanese | 'j'       | requirements-jp.txt          |
+| Spanish  | 'e'       | _no additional requirements_ |
+| French   | 'f'       | _no additional requirements_ |
 
 > [!Note]
-> You can read more about using different voices in the [Voices](#voices) secton.
+> Voices are prefixed with the language code and their gender. For example, 'af' means it is American English and Female. 'zm' means it is Chinese and Make. You can read more about using different voices in the [Voices](#voices) secton.
 
 ### Intel XPU environmental variables (Optional)
 
