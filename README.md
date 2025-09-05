@@ -117,11 +117,13 @@ python tts.py -c
 You can indicate a title to be used as label (i.e., file name prefix and directory name) to the generated outputs using `--title`
 
 ```bash
-# This will put the generated files in ./outputs/siple-greeting/
+# This will put the generated files in ./outputs/simple-greeting/
 python tts.py "Hello there!" --title "simple-greeting"
+ls ./outputs/simple-greeting
 
 # or shorter
-python tts.py "Hello there!" -t "simple-greeting"
+python tts.py "Hello there! and Hi!" -t "simple-greetings"
+ls ./outputs/simple-greetings
 ```
 
 ### Voices
