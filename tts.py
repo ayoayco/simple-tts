@@ -131,14 +131,13 @@ def main():
     # Generate audio
     with yaspin() as spinner:
         spinner.text = spinner_text
- 
+
         args=parse_args()
 
         if not args.verbose:
             # Disable all warnings
             warnings.filterwarnings("ignore")
- 
-        pipeline = KPipeline(lang_code='a', device=args.device, repo_id='hexgrad/Kokoro-82M')
+
         if args.voice in voices:
             voice=voices[args.voice]
         else:
@@ -167,6 +166,9 @@ def main():
         name = name.replace(" ", "_")
         name = name.replace("\\", "_")
         name = name.replace("/", "_")
+
+        lang_code = voice[0]
+        pipeline = KPipeline(lang_code=lang_code, device=args.device, repo_id='hexgrad/Kokoro-82M')
 
         '''
             Split patterns:
