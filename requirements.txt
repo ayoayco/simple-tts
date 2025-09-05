@@ -1,4 +1,5 @@
 kokoro
+misaki[en]
 soundfile
 python-vlc
 tqdm
