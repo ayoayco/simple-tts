@@ -1,0 +1,11 @@
+# for jp
+# ...if you get an error about missing 'mecabrc' file, just create an empty file with the reported name and location
+
+pyopenjtalk
+jaconv
+mojimoji
+mecab-python3
+
+# A dictionary is needed, you may choose to install the lite or full version
+fugashi[unidic-lite]
+# fugashi[unidic]
