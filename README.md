@@ -1,4 +1,4 @@
- Simple TTS
+# Simple TTS
 
 A simple machine learning text-to-speech program for your terminal. Hear text read aloud by realistic voices; from a file or your clipboard.
 
@@ -265,8 +265,13 @@ https://git.ayo.run/ayo/simple-tts/src/branch/main/demo/tongue-twister-af_nicole
 
 ![Simple TTS Screenshot](screenshot.png)
 
-### Licenses
+## Licenses
 
-**Simple TTS** is licensed as [BSD 2-Clause License](https://git.ayo.run/ayo/simple-tts/src/branch/main/LICENSE).
+**Simple TTS** is [BSD 2-Clause licensed](https://git.ayo.run/ayo/simple-tts/src/branch/main/LICENSE).
 
-It uses [kokoro](https://huggingface.co/hexgrad/Kokoro-82M), which is and Apache-licensed model. Please refer to their page at [huggingface](https://huggingface.co/hexgrad/Kokoro-82M).
+It uses [kokoro](https://huggingface.co/hexgrad/Kokoro-82M), which is and Apache-licensed model.
+
+---
+
+_Just keep building._<br>
+_A project by [Ayo](https://ayo.ayco.io)_
