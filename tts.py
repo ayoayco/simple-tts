@@ -176,11 +176,14 @@ def main():
             - statements ending in punctuations (:.?!;)
             - list items starting in '-' or '*'
             - numbered items starting with a digit followed by a dot '.'
+            - if a new line starts with a capital letter
         '''
+        sp = r'\n{2,}|[:.?!;]\n+|\n[(\* )(\- )(\d\. )]|\n[A-Z]'
+
         generator = pipeline(
             text,
             voice=voice,
-            split_pattern=r'\n{2,}|[:.?!;]\n+|\n[\*\-(\d+\.)]'
+            split_pattern=sp
         )
 
         if args.verbose:
