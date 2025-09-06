@@ -59,6 +59,13 @@ def parse_args():
         help="Voice to use (pro, hot, asmr, brit)",
     )
     parser.add_argument(
+        "--force_lang",
+        required=False,
+        type=str,
+        default="a",
+        help="Force language code",
+    )
+    parser.add_argument(
         "--input_file",
         "-i",
         required=False,
@@ -167,7 +174,8 @@ def main():
         name = name.replace("\\", "_")
         name = name.replace("/", "_")
 
-        lang_code = voice[0]
+        lang_code = args.force_lang if args.force_lang else voice[0]
+
         pipeline = KPipeline(lang_code=lang_code, device=args.device, repo_id='hexgrad/Kokoro-82M')
 
         '''

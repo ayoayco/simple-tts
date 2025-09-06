@@ -229,6 +229,12 @@ python tts.py --device cuda # will use the NVIDIA GPU
 python tts.py --device xpu # will use the Intel GPU
 ```
 
+If you want to use a voice for a different language text (e.g., Japanese voice for English text) you can use `--force_lang`
+
+```bash
+python tts.py -v jf_alpha "Hello there!" --force_lang a
+```
+
 ## Demo Outputs
 
 ### Voice: pro (ah_heart)
