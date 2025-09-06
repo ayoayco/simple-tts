@@ -62,7 +62,6 @@ def parse_args():
         "--force_lang",
         required=False,
         type=str,
-        default="a",
         help="Force language code",
     )
     parser.add_argument(
