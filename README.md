@@ -1,4 +1,4 @@
-# Simple TTS
+ Simple TTS
 
 A simple machine learning text-to-speech program for your terminal. Hear text read aloud by realistic voices; from a file or your clipboard.
 
@@ -161,7 +161,7 @@ ls ./outputs/simple-greetings
 
 ### Voices
 
-Optionally, you can indicate a voice you want to use with the `--voice` flag. See [all voices available](https://huggingface.co/hexgrad/Kokoro-82M/blob/main/VOICES.md).
+You can choose a voice to use with the `--voice` flag. For this, we use [kokoro](https://huggingface.co/hexgrad/Kokoro-82M), which is an Apache-licensed model. See [all available voices](https://huggingface.co/hexgrad/Kokoro-82M/blob/main/VOICES.md).
 
 ```bash
 python tts.py --voice am_michael
@@ -264,3 +264,9 @@ https://git.ayo.run/ayo/simple-tts/src/branch/main/demo/tongue-twister-af_nicole
 ### Screenshot
 
 ![Simple TTS Screenshot](screenshot.png)
+
+### Licenses
+
+**Simple TTS** is licensed as [BSD 2-Clause License](https://git.ayo.run/ayo/simple-tts/src/branch/main/LICENSE).
+
+It uses [kokoro](https://huggingface.co/hexgrad/Kokoro-82M), which is and Apache-licensed model. Please refer to their page at [huggingface](https://huggingface.co/hexgrad/Kokoro-82M).
