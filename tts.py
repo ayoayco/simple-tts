@@ -35,7 +35,7 @@ prep_texts = [
 ]
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="Simple TTS", allow_abbrev=False)
+    parser = argparse.ArgumentParser(description="Simple TTS - machine learning text-to-speech for your terminal", allow_abbrev=False)
     parser.add_argument(
         "input_text",
         type=str,
