@@ -28,6 +28,11 @@ This is especially useful for the days when I don't have the mental energy to go
 1. **Up to 55GB of storage** - Because it is not yet packaged or compiled, the python dependencies and huggingface models are downloaded separately into your machine (within the python environment) and requires storage space.
 1. **(Optional) PyTorch supported devicess** - GPU accelerators make the program run faster, but you need to have updated drivers for your device that `PyTorch` requires. However, it will still run fine on CPUs, just slower (up to 2x longer or more).
 
+
+## Setup
+
+First, install the required packages `espeak-ng` and `vlc`.
+
 ```bash
 sudo apt update
 sudo apt install vlc espeak-ng
@@ -36,9 +41,7 @@ sudo apt install vlc espeak-ng
 > [!Note]
 > Installing `vlc` via flatpak or snap will not work, as the code need access to `libvlc`.
 
-## Setup
-
-Clone repo and go into the directory
+Next, clone repo and go into the directory
 
 ```bash
 git clone https://git.ayo.run/ayo/simple-tts
