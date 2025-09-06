@@ -10,7 +10,7 @@ Having **Simple TTS** run on the terminal and locally on my machine provides a c
 
 This is especially useful for the days when I don't have the mental energy to go through the many written communication or resources I have to, and a little push is needed.
 
-👂 [Listen](https://git.ayo.run/ayo/simple-tts/src/branch/main/demo/motivation/asmr/motivation-af_nicole-1.wav)
+👂 ![Listen](https://git.ayo.run/ayo/simple-tts/src/branch/main/demo/motivation/pro/motivation-af_heart-2.wav)
 
 ## Features
 
