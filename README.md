@@ -235,6 +235,14 @@ If you want to use a voice for a different language text (e.g., Japanese voice f
 python tts.py -v jf_alpha "Hello there!" --force_lang a
 ```
 
+### Get help
+
+You can see all available options by running the following:
+
+```bash
+python tts.py --help
+```
+
 ## Demo Outputs
 
 ### Voice: pro (ah_heart)

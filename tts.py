@@ -41,28 +41,7 @@ def parse_args():
         type=str,
         nargs='?',
         default="",
-        help="Text to read",
-    )
-    parser.add_argument(
-        "--title",
-        "-t",
-        required=False,
-        type=str,
-        help="Title to use as label to the generated outputs",
-    )
-    parser.add_argument(
-        "--voice",
-        "-v",
-        required=False,
-        type=str,
-        default="pro",
-        help="Voice to use (pro, hot, asmr, brit)",
-    )
-    parser.add_argument(
-        "--force_lang",
-        required=False,
-        type=str,
-        help="Force language code",
+        help="text to read",
     )
     parser.add_argument(
         "--input_file",
@@ -70,20 +49,48 @@ def parse_args():
         required=False,
         type=str,
         default="demo/tongue-twister.txt",
-        help="Path to the input text file",
-    )
-    parser.add_argument(
-        "--verbose",
-        default=False,
-        action="store_true",
-        help="Show verbose reports",
+        help="path to the input text file",
     )
     parser.add_argument(
         "--clipboard",
         "-c",
         required=False,
         action="store_true",
-        help="Use text from the clipboard (i.e., copied text)",
+        help="use text from the clipboard (i.e., copied text)",
+    )
+    parser.add_argument(
+        "--title",
+        "-t",
+        required=False,
+        type=str,
+        help="title to use as label to the generated outputs",
+    )
+    parser.add_argument(
+        "--voice",
+        "-v",
+        required=False,
+        type=str,
+        default="pro",
+        help="voice to use (pro, hot, asmr, brit)",
+    )
+    parser.add_argument(
+        "--skip_play",
+        "-s",
+        required=False,
+        action="store_true",
+        help="Prevent playing the generated audio",
+    )
+    parser.add_argument(
+        "--force_lang",
+        required=False,
+        type=str,
+        help="force language code",
+    )
+    parser.add_argument(
+        "--verbose",
+        default=False,
+        action="store_true",
+        help="show verbose reports",
     )
     parser.add_argument(
         "--device",
@@ -92,13 +99,6 @@ def parse_args():
         type=str,
         default=("cuda" if torch.cuda.is_available() else ("mps" if torch.backends.mps.is_available() else ("xpu" if torch.xpu.is_available() else "cpu"))),
         help="Device for inference: cuda | mps | cpu",
-    )
-    parser.add_argument(
-        "--skip_play",
-        "-s",
-        required=False,
-        action="store_true",
-        help="Prevent playing the generated audio",
     )
     return parser.parse_args()
 
