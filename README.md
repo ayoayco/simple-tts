@@ -144,7 +144,7 @@ python tts.py -c
 
 ### Labeling your outputs
 
-You can indicate a title to be used as label (i.e., file name prefix and directory name) to the generated outputs using `--title`
+You can indicate a title to be used as label (i.e., file name prefix and directory name) to the generated outputs using `--title`. This is useful for organizing your outpur files and avoid the default temporary named files from being overriden.
 
 ```bash
 # This will put the generated files in ./outputs/simple-greeting/
@@ -199,6 +199,8 @@ It is possible that the there are additional setup for a specific voice language
 ### Disable audio player
 
 You can disable the built-in audio player with `--skip_play` if you choose to play the audio files generated with your preferred player.
+
+This is useful for when you just want to generate the audio files, leave your computer running, and come back to it after a while. Don't forget to [label your outputs](#labeling-your-outputs) to prevent default named files from being overriden.
 
 ```bash
 python tts.py "Hello there!" --voice asmr --skip_play
