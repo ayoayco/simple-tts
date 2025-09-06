@@ -269,7 +269,7 @@ https://git.ayo.run/ayo/simple-tts/src/branch/main/demo/tongue-twister-af_nicole
 
 **Simple TTS** is [BSD 2-Clause licensed](https://git.ayo.run/ayo/simple-tts/src/branch/main/LICENSE).
 
-It uses [kokoro](https://huggingface.co/hexgrad/Kokoro-82M), which is and Apache-licensed model.
+It uses [kokoro](https://huggingface.co/hexgrad/Kokoro-82M), which is an Apache-licensed model.
 
 ---
 
