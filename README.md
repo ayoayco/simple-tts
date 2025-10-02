@@ -29,7 +29,7 @@ This is especially useful for the days when I don't have the mental energy to go
 1. **Debian or Ubuntu** - This is currently only tested working on Debian or Ubuntu-based distros.
 1. **espeak-ng and vlc** - The following are required packages aside from the python dependencies. `espeak-ng` is used under the hood as a fallback engine for English languages, and `libvlc` is used as the default audio player for the generated audio.
 1. **xclip** - `xclip` is used for reading the text from your system's clipboard when `--clipboard` flag is used.
-1. **Around 55GB of storage** - Because it is not yet packaged or compiled, the python dependencies and huggingface models are downloaded separately during the setup process into your machine. If you use `conda` to manage your environments and are already working with pytorch, this shouldn't be a problem :)
+1. **Around 10GB of storage** - Because it is not yet packaged or compiled, the python dependencies and huggingface models are downloaded separately during the setup process into your machine.
 1. **Updated drivers for accelerators** - GPU accelerators make the program run faster, but you need to have updated drivers for your device that `PyTorch` requires. However, it will still run fine on CPUs, just slower (up to 2x longer or more).
 
 ## Setup
