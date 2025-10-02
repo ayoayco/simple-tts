@@ -9,3 +9,5 @@ build/
 dist/
 outputs/
 inputs/
+
+env.sh

@@ -1,1 +1,1 @@
-conda activate tts-nvidia
+conda activate tts
