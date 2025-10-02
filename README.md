@@ -56,7 +56,7 @@ Create new [Python virtual environment](https://realpython.com/python-virtual-en
 conda create -n tts python=3.13
 
 ### (optional) for Intel XPU specific device usage:
-conda create -n tts --clone llm-pt26
+conda create -n tts-intel --clone llm-pt26
 ```
 
 > [!Note]
@@ -92,10 +92,10 @@ python tts.py -v jf_alpha "言い習わし"
 
 ### Intel XPU environmental variables (Optional)
 
-For XPUs, we need to set some environmental variables. I have added a `env.sh` script which will activate the conda environment `tts` and set the environmental variables.
+For XPUs, we need to set some environmental variables. I have added a `env-intel.sh` script which will activate the conda environment `tts` and set the environmental variables.
 
 ```bash
-. env.sh
+. env-intel.sh
 ```
 
 ## Usage
@@ -110,7 +110,7 @@ conda activate tts
 If using Intel XPUs, set the env variables
 
 ```bash
-. env.sh
+. env-intel.sh
 ```
 
 Running the program without arguments will use the demo text `tongue-twister.txt` with the default voice.
