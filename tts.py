@@ -119,7 +119,7 @@ def play_audio(output_files):
         full_path = os.path.abspath(output)
         media = vlc_module.MediaPlayer(f"file://{full_path}")
         media.play()
-        sleep(0.01)
+        sleep(0.2)
         duration=media.get_length() / 1000
         chunk=f"{i+1}/{length} " if length > 1 else ""
         description = f"\u25B6 {chunk}"
@@ -147,7 +147,7 @@ def main():
         if args.voice in voices:
             voice=voices[args.voice]
         else:
-            voice=voices['pro'] if args.voice is None else args.voice
+            voice=voices['pro'] if not args.voice else args.voice
 
         # filename argument
         if args.input_text == "":
@@ -156,7 +156,8 @@ def main():
                 text = pyperclip.paste()
                 name = 'copied'
             else:
-                file_path = args.input_file
+                dirname = os.path.dirname(__file__)
+                file_path = os.path.join(dirname, args.input_file)
                 directory, file_name = os.path.split(file_path)
                 name = '.'.join(file_name.split('.')[:-1])
                 file = open(file_path, "r")
