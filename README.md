@@ -53,7 +53,7 @@ cd simple-tts
 Create new [Python virtual environment](https://realpython.com/python-virtual-environments-a-primer/). Here I use [`conda`](https://docs.conda.io/projects/conda/en/latest/user-guide/install/), but [venv](https://docs.python.org/3/library/venv.html) is also good.
 
 ```bash
-conda create -n tts
+conda create -n tts python=3.13
 
 ### (optional) for Intel XPU specific device usage:
 conda create -n tts --clone llm-pt26
