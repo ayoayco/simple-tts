@@ -34,11 +34,11 @@ This is especially useful for the days when I don't have the mental energy to go
 
 ## Setup
 
-First, install the required packages `espeak-ng` and `vlc`.
+First, install the required packages `espeak-ng`, `vlc` and `xclip`.
 
 ```bash
 sudo apt update
-sudo apt install vlc espeak-ng
+sudo apt install vlc espeak-ng xclip
 ```
 
 > [!Note]
