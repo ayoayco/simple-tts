@@ -93,10 +93,10 @@ python tts.py -v jf_alpha "言い習わし"
 
 ### Intel XPU environmental variables (Optional)
 
-For XPUs, we need to set some environmental variables. I have added a `env-intel.sh` script which will activate the conda environment `tts` and set the environmental variables.
+For XPUs, we need to set some environmental variables. I have added a `intel-env.sh` script which will activate the conda environment `tts` and set the environmental variables.
 
 ```bash
-. env-intel.sh
+. intel-env.sh
 ```
 
 ## Usage
@@ -111,7 +111,7 @@ conda activate tts
 If using Intel XPUs, set the env variables
 
 ```bash
-. env-intel.sh
+. intel-env.sh
 ```
 
 Running the program without arguments will use the demo text `tongue-twister.txt` with the default voice.
