@@ -119,7 +119,7 @@ def play_audio(output_files):
         full_path = os.path.abspath(output)
         media = vlc_module.MediaPlayer(f"file://{full_path}")
         media.play()
-        sleep(0.2)
+        sleep(0.5)
         duration=media.get_length() / 1000
         chunk=f"{i+1}/{length} " if length > 1 else ""
         description = f"\u25B6 {chunk}"
